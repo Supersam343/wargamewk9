@@ -83,7 +83,7 @@ class Game {
 
    
  playGame() {
-    const deck = new Deck
+    const deck = new Deck();
     deck.createDeck()
     deck.shuffleDeck()
 
@@ -104,7 +104,7 @@ class Game {
             score: 
             Player1: ${this.player1.score} player2: ${this.player2.score}`)
      } else if (this.player2.hand[i].value > this.player1.hand[i].value) {
-            this.player1.score ++
+            this.player2.score ++
             console.log(`
             Declare War!!!
             Player1 card: ${this.player1.hand[i].name}
