@@ -23,8 +23,12 @@ class Deck {
             "Spades 🗡️", "Hearts ❤️", "Diamonds 💎", "Clubs 🍀"
         ];
     }
+
+
 //  creates deck by looping through the rank object and the suit array and creates 
 //  a card with an object with a value and suit
+
+
     createDeck() {
         this.deck = [];
          for (let rankName in this.rank) {
@@ -40,7 +44,48 @@ class Deck {
         }
     }
 
-   
+
+// shuffles the deck by starting at the end of the array and moving backwards,
+//  then it picks a random index from  
+// "o" then swapping them with the the value at the current i index.
+
+
+    shuffleDeck() {
+  const deck = this.deck;
+  for (let i = deck.length - 1; i > 0; i--) {
+    const o = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[o]] = [deck[o], deck[i]];
+        }
+    }
+
+}  
+
+// class for the game itself including the two player objects
+
+class Game {
+    constructor() {
+        this.player1 = {
+            name: 'player 1',
+            score: 0,
+            hand: []
+        }
+        this.player2 = {
+            name: 'player 2',
+            score: 0,
+            hand: []
+        }
+    }
+    
+}
+
+// a way to play the game
+
+
+
+
+
+
 const myDeck = new Deck();
 myDeck.createDeck();
+myDeck.shuffleDeck();
 console.log(myDeck.deck);
