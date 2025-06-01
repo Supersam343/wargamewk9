@@ -76,16 +76,63 @@ class Game {
         }
     }
     
+
+
+// a way to play the game using the shuffled deck and for if statements depending 
+// on which value is greater the player recieves a point
+
+   
+ playGame() {
+    const deck = new Deck
+    deck.createDeck()
+    deck.shuffleDeck()
+
+     while(deck.deck.length !== 0) {
+
+        this.player1.hand.push(deck.deck.shift())
+        this.player2.hand.push(deck.deck.shift())
+     }
+
+     for (let i= 0; i < this.player1.hand.length; i++) {
+        if(this.player1.hand[i].value > this.player2.hand[i].value) {
+            this.player1.score ++
+            console.log(`
+            Declare War!!!
+            Player1 card: ${this.player1.hand[i].name}
+            Player2 card: ${this.player2.hand[i].name}
+            player one experiences a win!
+            score: 
+            Player1: ${this.player1.score} player2: ${this.player2.score}`)
+     } else if (this.player2.hand[i].value > this.player1.hand[i].value) {
+            this.player1.score ++
+            console.log(`
+            Declare War!!!
+            Player1 card: ${this.player1.hand[i].name}
+            Player2 card: ${this.player2.hand[i].name}
+            player two experiences a win!
+            score: 
+            Player1: ${this.player1.score} player2: ${this.player2.score}`)
+     } else {
+         console.log(`
+            Declare War!!!
+            Player1 card: ${this.player1.hand[i].name}
+            Player2 card: ${this.player2.hand[i].name}
+            tie no one experiences a win, womp womp womp
+            score: 
+            Player1: ${this.player1.score} player2: ${this.player2.score}`)
+      }
+    } 
+     if (this.player1.score > this.player2.score) {
+        console.log('player1 wins the chicken dinner!!!')
+     } else if (this.player2.score > this.player1.score) {
+        console.log('player2 wins the chicken dinner!!!')
+     } else {
+        console.log('wow a fluke! it was a tie!')
+     }
+  }
+
 }
 
-// a way to play the game
 
-
-
-
-
-
-const myDeck = new Deck();
-myDeck.createDeck();
-myDeck.shuffleDeck();
-console.log(myDeck.deck);
+const game = new Game
+game.playGame()
